@@ -3,12 +3,18 @@ package jogo;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Spawner {
 
-	//private int altura, largura;
+	private int x;
 	private List<Obstaculo> oponente;
-	
+	private Timer timer;
+	private TimerTask task;
+	private Random gerador = new Random();
+	private int seg = 5;
 	
 	public Spawner() {
 		oponente = new ArrayList<Obstaculo>();
@@ -20,7 +26,37 @@ public class Spawner {
 	}
 	
 	public void Spawn() {
-		this.oponente.add(new Obstaculo("res\\carro_1.gif",20 ,250));
+		x = gerador.nextInt(3);
+		switch (x) {
+		case 0:
+			this.oponente.add(new Obstaculo("res\\carro_1.gif",0 ,-250));
+			break;
+		case 1:
+			this.oponente.add(new Obstaculo("res\\carro_1.gif",55 ,-250));
+			break;
+		case 2:
+			this.oponente.add(new Obstaculo("res\\carro_1.gif",110 ,-250));
+			break;
+
+		default:
+			break;
+		}
+		
+		seg = gerador.nextInt(10);
+	}
+	
+	public void time() {
+		
+		timer = new Timer();
+		task = new TimerTask() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Spawn();
+			}
+		};
+		timer.scheduleAtFixedRate(task, 5, 1000 * seg);
 	}
 	
 	public void keyPressed(KeyEvent tecla) {

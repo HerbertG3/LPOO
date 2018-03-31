@@ -20,6 +20,7 @@ public class Fase extends JPanel implements ActionListener{
 	private Obstaculo obs;
 	private Timer timer;
 	private Spawner spawner;
+	boolean ok = false;
 	
 	
 	public Fase() {
@@ -72,7 +73,9 @@ public class Fase extends JPanel implements ActionListener{
 		}
 		System.out.println(oponente.size());
 		carro.mexer();
-		//obs.mexer();
+		if(!ok)
+		spawner.time();
+		ok=true;
 		repaint();
 		
 	}
