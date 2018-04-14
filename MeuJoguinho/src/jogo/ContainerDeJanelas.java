@@ -1,4 +1,8 @@
 package jogo;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import javax.swing.JFrame;
 
 public class ContainerDeJanelas extends JFrame{
@@ -12,9 +16,12 @@ public class ContainerDeJanelas extends JFrame{
 		setResizable(false);
 		setVisible(true);
 	}
+	static Som som = new Som();
 	
 	public static void main(String[] args) {
+		
 		new ContainerDeJanelas();
+		som.executaSom("res\\InDaClub.wav");
 	}
 
 }
