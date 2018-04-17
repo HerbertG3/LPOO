@@ -14,23 +14,9 @@ public class Obstaculo extends Carro{
 		
 	}
 	
-	@Override
 	public void mexer() {
 		
-		/*if(getY()>-250&&u)
-			setY(getY()-1);
-		else {
-			setY(getY()+1);
-		}
-		
-		if(getY()==-250) {
-			u=false;
-		}
-		if(getY()==250) {
-			u=true;
-		}*/
-		
-		setY(getY()+1);
+		setY(getY()+2);
 		System.out.println("Update dy: " + getY());
 	}
 	
