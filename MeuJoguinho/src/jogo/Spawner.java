@@ -26,15 +26,36 @@ public class Spawner {
 	}
 	
 	public void Spawn() {
-		x = gerador.nextInt(3);
+		x = gerador.nextInt(9);
 		switch (x) {
 		case 0:
 			this.oponente.add(new Obstaculo("res\\carro_1.gif",0 ,-250));
 			break;
 		case 1:
-			this.oponente.add(new Obstaculo("res\\carro_1.gif",55 ,-250));
+			this.oponente.add(new Obstaculo("res\\carro_2.gif",55 ,-250));
 			break;
 		case 2:
+			this.oponente.add(new Obstaculo("res\\carro_3.gif",110 ,-250));
+			break;
+		case 3:
+			this.oponente.add(new Obstaculo("res\\carro_4.gif",0 ,-250));
+			break;
+		case 4:
+			this.oponente.add(new Obstaculo("res\\carro_5.gif",55 ,-250));
+			break;
+		case 5:
+			this.oponente.add(new Obstaculo("res\\carro_3.gif",110 ,-250));
+			break;
+		case 6:
+			this.oponente.add(new Obstaculo("res\\carro_5.gif",0 ,-250));
+			break;
+		case 7:
+			this.oponente.add(new Obstaculo("res\\carro_4.gif",55 ,-250));
+			break;
+		case 8:
+			this.oponente.add(new Obstaculo("res\\carro_2.gif",110 ,-250));
+			break;
+		case 9:
 			this.oponente.add(new Obstaculo("res\\carro_1.gif",110 ,-250));
 			break;
 

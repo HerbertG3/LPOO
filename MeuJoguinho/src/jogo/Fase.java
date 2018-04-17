@@ -15,34 +15,33 @@ import javax.swing.JPanel;
 
 public class Fase extends JPanel implements ActionListener{
 
-	private Image fundo;
 	private Player carro;
-	private Obstaculo obs;
 	private Timer timer;
 	private Spawner spawner;
 	boolean ok = false;
-	
+	private Pista pista;
+	private Pista pista1;
+	int i=0;
 	
 	public Fase() {
 		
 		setDoubleBuffered(true);
 		setFocusable(true);
 		addKeyListener(new TecladoAdapter());
-		ImageIcon referencia = new ImageIcon("res\\fundo1.jpg");
-		fundo = referencia.getImage();
 		
 		carro = new Player("res\\carro_6.gif",160,320);
-		obs = new Obstaculo("res\\carro_1.gif",20 ,250);
 		spawner = new Spawner();
-		
+		pista = new Pista("res\\fundo1.jpg", 0, 0);
+		pista1 = new Pista("res\\fundo2.jpg", 0, -500);
 		timer = new Timer(5,this);
 		timer.start();
 	}
 	
 	public void paint(Graphics g) {
-		
+		i++;
 		Graphics2D graficos = (Graphics2D) g;
-		graficos.drawImage(fundo, 0, 0, null);
+		graficos.drawImage(pista.getImagem(), 0, pista.getY(), null);
+		graficos.drawImage(pista1.getImagem(), 0, pista1.getY(), null);
 		graficos.drawImage(carro.getImagem(), carro.getX(), carro.getY(), this);
 		
 		Graphics2D graficos1 = (Graphics2D) g;	
@@ -75,6 +74,9 @@ public class Fase extends JPanel implements ActionListener{
 		carro.mexer();
 		if(!ok)
 		spawner.time();
+		pista.mexer();
+		pista1.mexer1();
+		System.out.println("Imprimindo");
 		ok=true;
 		repaint();
 		
